@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Phishing Guard</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main data-testid="popup-root">
+      <h1>Phishing Guard</h1>
+      <div id="live" role="status" aria-live="polite" data-testid="popup-status">
+        <h2 id="verdict" data-testid="popup-verdict" hidden>
+          <span id="symbol" class="symbol" aria-hidden="true"></span>
+          <span id="label"></span>
+        </h2>
+        <p id="note" data-testid="popup-note"></p>
+        <p id="page-row" hidden>
+          <span class="term">Page:</span> <span id="page" data-testid="popup-page"></span>
+        </p>
+        <p id="reason-row" hidden>
+          <span class="term">Why:</span> <span id="reason" data-testid="popup-reason"></span>
+        </p>
+        <p id="more" hidden data-testid="popup-reason-more"></p>
+      </div>
+      <button
+        id="show-more"
+        type="button"
+        class="secondary"
+        aria-expanded="false"
+        aria-controls="more"
+        hidden
+        data-testid="popup-show-more-button"
+      >
+        Show more
+      </button>
+      <div class="actions">
+        <button id="check-again" type="button" data-testid="popup-check-again-button">
+          Check again
+        </button>
+        <button
+          id="settings-link"
+          type="button"
+          class="link-button"
+          data-testid="popup-settings-link"
+        >
+          Settings
+        </button>
+      </div>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

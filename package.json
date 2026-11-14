@@ -1,0 +1,31 @@
+{
+  "name": "jev-web-guard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Edge and Chrome (Manifest V3) extension that checks each opened page with TypeSafe Jev and shows a verdict.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "jest",
+    "test:unit": "jest --runInBand --testPathPatterns \"src/(shared|core|adapters|background|content|popup|options)/\"",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check:key-scan": "node scripts/keyScan.cjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/chrome": "0.3.7",
+    "@types/jest": "30.0.0",
+    "esbuild": "0.28.2",
+    "eslint": "10.15.0",
+    "jest": "30.5.2",
+    "jest-environment-jsdom": "30.5.2",
+    "prettier": "3.10.1",
+    "ts-jest": "29.4.15",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.2"
+  }
+}

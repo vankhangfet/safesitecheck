@@ -1,0 +1,20 @@
+{
+  "stage": "code-generation",
+  "unit": "u1-core-check",
+  "version": 1,
+  "writes": [
+    { "path": ".gitignore" },
+    { "path": ".npmrc" },
+    { "path": ".prettierignore" },
+    { "path": ".prettierrc.json" },
+    { "path": "eslint.config.mjs" },
+    { "path": "jest.config.cjs" },
+    { "path": "manifest.json" },
+    { "path": "package.json" },
+    { "path": "package-lock.json" },
+    { "path": "tsconfig.json" },
+    { "path": "tsconfig.test.json" },
+    { "path": "scripts/" },
+    { "path": "src/" }
+  ]
+}

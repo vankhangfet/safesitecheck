@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Phishing Guard settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main data-testid="settings-root">
+      <h1>Settings</h1>
+      <p id="first-run-hint" hidden data-testid="settings-first-run-hint">
+        Choose where checks come from, paste your Jev key and press Save. The key stays on this
+        device.
+      </p>
+      <form id="settings-form" novalidate>
+        <fieldset>
+          <legend><h2>Verdict source</h2></legend>
+          <p>
+            <input
+              type="radio"
+              name="source"
+              id="source-jev"
+              value="jev"
+              checked
+              data-testid="settings-source-jev-radio"
+            />
+            <label for="source-jev">Hosted Jev</label>
+          </p>
+          <p>
+            <input
+              type="radio"
+              name="source"
+              id="source-openjev"
+              value="openjev"
+              data-testid="settings-source-openjev-radio"
+            />
+            <label for="source-openjev">Hosted OpenJev</label>
+          </p>
+        </fieldset>
+
+        <h2>Connection</h2>
+        <div class="field">
+          <label for="key">Jev key</label>
+          <div class="row">
+            <input
+              type="password"
+              id="key"
+              autocomplete="off"
+              spellcheck="false"
+              aria-describedby="key-help key-error"
+              data-testid="settings-key-input"
+            />
+            <button
+              type="button"
+              id="key-toggle"
+              class="secondary"
+              aria-pressed="false"
+              data-testid="settings-key-toggle-button"
+            >
+              Show
+            </button>
+          </div>
+          <p id="key-help" class="help">The key is stored on this device only.</p>
+          <p id="key-error" class="error" data-testid="settings-key-error"></p>
+          <button
+            type="button"
+            id="remove-key"
+            class="secondary"
+            hidden
+            data-testid="settings-remove-key-button"
+          >
+            Remove saved key
+          </button>
+        </div>
+
+        <div class="field">
+          <label for="server-address">Server address</label>
+          <input
+            type="url"
+            id="server-address"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="https://api.typesafe.ai"
+            aria-describedby="address-help address-error"
+            data-testid="settings-address-input"
+          />
+          <p id="address-help" class="help">
+            Leave empty to use hosted Jev at https://api.typesafe.ai.
+          </p>
+          <p id="address-error" class="error" data-testid="settings-address-error"></p>
+        </div>
+
+        <p id="destination" data-testid="settings-destination"></p>
+        <p id="notice" data-testid="settings-notice">
+          For each check, only the website address without anything after a ? or #, and three yes/no
+          facts about the page (it has a password field, it has a card number field, a form sends to
+          another website) are sent. No page text and no typed values are sent.
+        </p>
+
+        <div class="actions">
+          <button type="submit" id="save" data-testid="settings-save-button">Save</button>
+          <button type="button" id="test" class="secondary" data-testid="settings-test-button">
+            Test connection
+          </button>
+        </div>
+
+        <label class="inline" for="debug">
+          <input type="checkbox" id="debug" data-testid="settings-debug-checkbox" />
+          Write step names to the browser console (no addresses, no key)
+        </label>
+        <p id="status" role="status" aria-live="polite" data-testid="settings-status"></p>
+      </form>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>
